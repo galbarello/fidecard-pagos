@@ -1,11 +1,11 @@
 <%= form_for @user do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :username %><br />
+    <%= f.label :username,'Usuario' %><br />
     <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label :email, "Email Address" %><br />
+    <%= f.label :email, "Email" %><br />
     <%= f.text_field :email %>
   </p>
   <p>
@@ -13,8 +13,8 @@
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :password_confirmation, "Confirm Password" %><br />
+    <%= f.label :password_confirmation, "Confirmar Password" %><br />
     <%= f.password_field :password_confirmation %>
   </p>
-  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
+  <p><%= f.submit (@user.new_record? ? "Crear cuenta" : "Update") %></p>
 <% end %>

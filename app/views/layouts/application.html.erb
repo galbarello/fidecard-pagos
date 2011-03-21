@@ -13,11 +13,11 @@
         <%= image_tag "encabezado_1.jpg" %>
         <% if logged_in? %>
          Bienvenido <%= current_user.username %>.
-           <%= link_to "Edit profile", edit_current_user_path %> or
-    <%= link_to "Log out", logout_path %>
+           <%= link_to "Ver Perfil", edit_current_user_path %> or
+    <%= link_to "Salir", logout_path %>
    <% else %>
-     <%= link_to "Sign up", signup_path %> or
-     <%= link_to "log in", login_path %>.
+     <%= link_to "Crear Usuario", signup_path %> or
+     <%= link_to "Ingresar", login_path %>.
    <% end %>
 
       </div>
