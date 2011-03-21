@@ -22,7 +22,7 @@ Jqueryblog::Application.configure do
 
   # Only use best-standards-support built into browsers
 config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :test
+  ActiveMerchant::Billing::Base.mode = :production
   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
     :login => "seller_1229899173_biz_api1.railscasts.com",
     :password => "FXWU58S7KXFC6HBE",

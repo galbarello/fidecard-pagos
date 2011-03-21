@@ -48,6 +48,7 @@ Jqueryblog::Application.configure do
   config.active_support.deprecation = :notify
 
     config.after_initialize do
+      ActiveMerchant::Billing::Base.mode = :production
    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
     :login => "galbar_1300654000_biz_api1.gmail.com",
       :password => "1300654015",
