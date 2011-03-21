@@ -1,6 +1,11 @@
 class Order < ActiveRecord::Base
   has_many :transactions, 
   :class_name => "OrderTransaction"
+ 
+  validates_presence_of :card_number
+  validates_presence_of :card_verification
+  validates_presence_of :amount
+  validates_length_of :card_verification, :in => 3..4, :allow_nil => false
 
   attr_accessor :card_number, :card_verification 
 

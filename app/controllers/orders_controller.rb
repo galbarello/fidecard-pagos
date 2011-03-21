@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+before_filter :login_required
+
   def new
     @order = Order.new
   end
