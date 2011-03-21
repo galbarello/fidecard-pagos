@@ -21,16 +21,15 @@ Jqueryblog::Application.configure do
   config.active_support.deprecation = :log
 
   # Only use best-standards-support built into browsers
+config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :test
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    :login => "seller_1229899173_biz_api1.railscasts.com",
+    :password => "FXWU58S7KXFC6HBE",
+    :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
+  )
+end  
 
-   config.action_dispatch.best_standards_support = :builtin
-
-    config.after_initialize do
-   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-    :login => "galbar_1300654000_biz_api1.gmail.com",
-      :password => "1300654015",
-        :signature => "AZ1u9jEqDqRtAkF6403SD7H4g3cxA0bGy-Hl3wQFdNKbv6CzQL8GntEW"
-) 
-end
-
+  config.action_dispatch.best_standards_support = :builtin
 end
 
