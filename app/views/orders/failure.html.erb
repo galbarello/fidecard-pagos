@@ -1,4 +1,14 @@
 Error en el proceso
 
-Imprimiendo transacción
+Imprimiendo Error de Logueo
+
+<% @order.transactions.each do |transaction| %>
+  <li>Estado:<%=transaction.message%></li>
+  <li>Orden:<%=transaction.order_id%></li>
+  <li>Tipo Operacion:<%=transaction.action%></li>
+  <li>Monto en centavos:<%=transaction.amount%></li>
+  <li>Autorización:<%=transaction.authorization%></li>
+  <li>Data:<%=transaction.params%></li>
+  <%end %>
+</ul>
 <%= link_to 'Reintentar', root_path %>
