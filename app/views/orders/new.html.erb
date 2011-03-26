@@ -2,43 +2,43 @@
 
 <%= form_for @order do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :amount,'Monto Compra' %><br />
-    <%= f.text_field :amount %>
-  </p>
-  <p>
-    <%= f.label :description,'Descripccion Venta' %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :finana,'Cuotas'%> <br/>
-    <%= f.text_field :finana %>
-  </p>
-    <p>
-    <%= f.label :first_name,'Nombres' %><br />
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name,'Apellido' %><br />
-    <%= f.text_field :last_name %>
-  </p>
-<p>
-    <%= f.label :card_type, 'Tarjeta' %><br />
-    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
-  </p>
-<p>
-    <%= f.label :card_number,'Numero Tarjeta' %><br />
+   <div data-role="fieldcontain">
+    <%= f.label :card_number,'Numero Tarjeta' %>
     <%= f.text_field :card_number %>
-  </p>
-  <p>
-    <%= f.label :card_verification, "Digitos Verificadores (PIN)" %><br />
-    <%= f.text_field :card_verification %>
-  </p>
-  <p>
-    <%= f.label :card_expires_on,'Fecha Vencimiento' %><br />
+  </div>
+    <div data-role="fieldcontain">
+    <%= f.label :description,'Descripccion Venta' %>
+    <%= f.text_area :description %>
+  </div>
+  <div data-role="fieldcontain">
+    <%= f.label :amount,'Monto Compra' %>
+    <%= f.number_field :amount , :in => 1...100000%>
+  </div>
+  <div data-role="fieldcontain">
+    <%= f.label :finana,'Cuotas'%> 
+    <%= f.range_field :finana ,:value=>1, :in => 1..36 %>
+  </div>
+    <div data-role="fieldcontain">
+    <%= f.label :first_name,'Nombres' %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div data-role="fieldcontain">
+    <%= f.label :last_name,'Apellido' %>
+    <%= f.text_field :last_name %>
+  </div>
+<div data-role="fieldcontain">
+    <%= f.label :card_type, 'Tarjeta' %>
+    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+    </div>
+     <div data-role="fieldcontain">
+    <%= f.label :card_verification, "Digitos Verificadores (PIN)" %>
+    <%= f.password_field :card_verification, :size => 4 %>
+  </div>
+  <div data-role="fieldcontain">
+    <%= f.label :card_expires_on,'Fecha Vencimiento' %>
     <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
-  </p>
-     <p><%= f.submit 'Procesar' %></p>
+  </div>
+     <div data-role="fieldcontain"><%= f.submit 'Procesar' %></div>
 <% end %>
 
 

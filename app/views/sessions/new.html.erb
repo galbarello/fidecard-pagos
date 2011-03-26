@@ -1,15 +1,28 @@
-<% title "Log in" %>
+<% title "Ingreso" %>
 
-<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+<p>Solo modo Demo <%= link_to "Crear Cuenta!", signup_path ,"class" => "ui-btn-right"%></p>
 
 <%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :login, "Username or Email Address" %><br />
+  <div data-role="fieldcontain">
+    <%= label_tag :login, "Usuario o Email" %>
     <%= text_field_tag :login, params[:login] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
+  </div>
+  <div data-role="fieldcontain">
+    <%= label_tag :password %>
     <%= password_field_tag :password %>
-  </p>
-  <p><%= submit_tag "Log in" %></p>
+  </div>
+<div class="ui-body ui-body-b">
+        <fieldset class="ui-grid-a">
+          <div class="ui-block-a">
+            <button id="btnCancel" data-theme="d"
+              data-icon="delete">Cancel</button>
+          </div>
+          <div class="ui-block-b">
+            <button id="btnLogin" type="submit"
+              data-theme="a" data-icon="check">
+                Log In
+            </button>       
+          </div>
+        </fieldset>
+      </div>
 <% end %>
