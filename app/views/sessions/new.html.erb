@@ -1,15 +1,23 @@
-<% title "Log in" %>
-
-<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
-
+<% title "Ingreso" %>
 <%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :login, "Username or Email Address" %><br />
-    <%= text_field_tag :login, params[:login] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
+  <div data-role="fieldcontain">
+    <%= label_tag :login, "Usuario o Email" %>
+    <%= text_field_tag :login, params[:login] ,:class=>"auto-focus"%>
+  </div>
+  <div data-role="fieldcontain">
+    <%= label_tag :password %>
     <%= password_field_tag :password %>
-  </p>
-  <p><%= submit_tag "Log in" %></p>
+  </div>
+<div class="ui-body ui-body-b">
+        <fieldset class="ui-grid-a">
+          <div class="ui-block-a">
+            <button id="btnCancel" data-theme="d"
+              data-icon="delete">Cancelar</button>
+          </div>
+          <div class="ui-block-b">
+            <button id="btnLogin" type="submit"
+              data-theme="a" data-icon="check" data-ajax="false" data-transition="fade">Ingresar</button>       
+          </div>
+        </fieldset>
+      </div>
 <% end %>
