@@ -1,11 +1,8 @@
 <% title "Ingreso" %>
-
-<p>Solo modo Demo <%= link_to "Crear Cuenta!", signup_path ,"class" => "ui-btn-right"%></p>
-
 <%= form_tag sessions_path do %>
   <div data-role="fieldcontain">
     <%= label_tag :login, "Usuario o Email" %>
-    <%= text_field_tag :login, params[:login] %>
+    <%= text_field_tag :login, params[:login] ,:class=>"auto-focus"%>
   </div>
   <div data-role="fieldcontain">
     <%= label_tag :password %>
@@ -15,13 +12,11 @@
         <fieldset class="ui-grid-a">
           <div class="ui-block-a">
             <button id="btnCancel" data-theme="d"
-              data-icon="delete">Cancel</button>
+              data-icon="delete">Cancelar</button>
           </div>
           <div class="ui-block-b">
             <button id="btnLogin" type="submit"
-              data-theme="a" data-icon="check">
-                Log In
-            </button>       
+              data-theme="a" data-icon="check" data-transition="fade">Ingresar</button>       
           </div>
         </fieldset>
       </div>

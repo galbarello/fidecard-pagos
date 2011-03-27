@@ -2,9 +2,9 @@
 
 <%= form_for @order do |f| %>
   <%= f.error_messages %>
-   <div data-role="fieldcontain">
+  <div data-role="fieldcontain">
     <%= f.label :card_number,'Numero Tarjeta' %>
-    <%= f.text_field :card_number %>
+    <%= f.text_field :card_number ,:class=>"auto-focus" %>
   </div>
     <div data-role="fieldcontain">
     <%= f.label :description,'Descripccion Venta' %>
@@ -12,7 +12,7 @@
   </div>
   <div data-role="fieldcontain">
     <%= f.label :amount,'Monto Compra' %>
-    <%= f.number_field :amount , :in => 1...100000%>
+    <%= f.number_field :amount %>
   </div>
   <div data-role="fieldcontain">
     <%= f.label :finana,'Cuotas'%> 
@@ -29,16 +29,23 @@
 <div data-role="fieldcontain">
     <%= f.label :card_type, 'Tarjeta' %>
     <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
-    </div>
-     <div data-role="fieldcontain">
-    <%= f.label :card_verification, "Digitos Verificadores (PIN)" %>
-    <%= f.password_field :card_verification, :size => 4 %>
   </div>
   <div data-role="fieldcontain">
-    <%= f.label :card_expires_on,'Fecha Vencimiento' %>
-    <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+      <%= f.label :card_verification, "Digitos de control (PIN)" %>
+      <%= f.password_field :card_verification, :size => 4 %>
   </div>
-     <div data-role="fieldcontain"><%= f.submit 'Procesar' %></div>
-<% end %>
-
-
+ <div data-role="fieldcontain">
+   <%= f.label :card_expires_on,'Fecha Vencimiento' %>
+     <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+</div>
+  <div class="ui-body ui-body-b">
+      <fieldset class="ui-grid-a">
+        <div class="ui-block-a">
+          <button id="btnCancel" data-theme="d" data-icon="delete">Cancelar</button>
+          </div>
+          <div class="ui-block-b">
+            <button id="btnLogin" type="submit" data-theme="a" data-icon="check">Procesar</button>       
+          </div>
+        </fieldset>
+      </div>
+    <% end %>
