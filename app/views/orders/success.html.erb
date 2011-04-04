@@ -1,3 +1,4 @@
+<div class="lcddisplay dotmatrix">
 Transaccion Aprobada
 
 Imprimiendo...
@@ -10,7 +11,11 @@ Imprimiendo...
   <li>Tipo Operacion:<%=transaction.action%></li>
   <li>Monto en centavos:<%=transaction.amount%></li>
   <li>Autorización:<%=transaction.authorization%></li>
-  <li>Data:<%=transaction.params%></li>
+  <li>Data:
+  <%=transaction.params.each do |p|%>
+    <li>p.to_s</li>
   <%end %>
+<%end%>
 </ul>
-<%= link_to 'Nueva Compra', root_path %>
+</div>
+<%= button_to "Nueva Compra", :action => "new" %>
