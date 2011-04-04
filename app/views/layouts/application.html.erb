@@ -3,16 +3,18 @@
 <head>
   <title>Fidecard Pagos</title>
   <%= stylesheet_link_tag :all%>
-  <link rel="stylesheet" type="text/css" href="keyboard.css">
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />  
   <link rel="stylesheet" href="http://jeromeetienne.github.com/jquery-mobile-960/css/jquery-mobile-960.min.css" />
-  <%= javascript_include_tag 'jquery','rails','keyboard' %>
-  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script> 
+  <%= javascript_include_tag 'jquery','rails','keyboard' %>  
 <script type="text/javascript"> 
-  $(document).ready(function(){
+     jQuery(document).bind("mobileinit", function(){jQuery.extend(  jQuery.mobile , {ajaxFormsEnabled : false});});
+    </script> 
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script> 
+    <script>
+       $(document).ready(function(){
       //  Focus auto-focus fields
-        $('.auto-focus:first').focus();});
-</script> 
+      $('.auto-focus:first').focus();});
+    </script>
   <%= csrf_meta_tag %>
 </head>
   <body>
