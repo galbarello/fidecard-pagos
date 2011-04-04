@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   validates_presence_of :card_verification
   validates_presence_of :amount
   validates_length_of :card_verification, :in => 3..4, :allow_nil => false
-
+  validates_numericality_of :amount
   attr_accessor :card_number, :card_verification 
 
   def purchase
