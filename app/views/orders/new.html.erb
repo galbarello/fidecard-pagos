@@ -1,34 +1,32 @@
-<% title "Procesar Compra" %>
+<% title "Pago Electrónico" %>
 
 <%= form_for @order do |f| %>
   <%= f.error_messages %>
   <div data-role="fieldcontain">
     <%= f.label :card_number,'Numero Tarjeta' %>
     <%= f.text_field :card_number ,:class=>"auto-focus" %>
+    <button id="btnCancel" data-theme="d" type="reset" data-icon="delete">Cancelar</button>
   </div>
-    <div data-role="fieldcontain">
-    <%= f.label :description,'Descripccion Venta' %>
-    <%= f.text_area :description %>
-  </div>
-  <div data-role="fieldcontain">
-    <%= f.label :amount,'Monto Compra' %>
-    <%= f.number_field :amount %>
-  </div>
-  <div data-role="fieldcontain">
-    <%= f.label :finana,'Cuotas'%> 
-    <%= f.range_field :finana ,:value=>1, :in => 1..36 %>
-  </div>
-    <div data-role="fieldcontain">
-    <%= f.label :first_name,'Nombres' %>
+   <div data-role="fieldcontain">
+    <%= f.label :first_name,'Nombre' %>
     <%= f.text_field :first_name %>
   </div>
   <div data-role="fieldcontain">
     <%= f.label :last_name,'Apellido' %>
     <%= f.text_field :last_name %>
   </div>
-<div data-role="fieldcontain">
+
+  <div data-role="fieldcontain">
+    <%= f.label :amount,'Monto Compra' %>
+    <%= f.text_field :amount ,:class=> "keyboardInput" %>
+  </div>
+  <div data-role="fieldcontain">
+    <%= f.label :finana,'Cuotas'%> 
+    <%= f.range_field :finana ,:value=>1, :in => 1..36 %>
+  </div>
+   <div data-role="fieldcontain">
     <%= f.label :card_type, 'Tarjeta' %>
-    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+    <%= f.select :card_type, [["PortaCash","visa"],["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
   </div>
   <div data-role="fieldcontain">
       <%= f.label :card_verification, "Digitos de control (PIN)" %>
@@ -43,7 +41,7 @@
   <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
         <div class="ui-block-a">
-          <button id="btnCancel" data-theme="d" data-icon="delete">Cancelar</button>
+          <button id="btnCancel" data-theme="d" type="reset" data-icon="delete">Cancelar</button>
           </div>
           <div class="ui-block-b">
             <button id="btnLogin" type="submit" data-theme="a" data-icon="check">Procesar</button>       
