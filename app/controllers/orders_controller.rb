@@ -6,11 +6,16 @@ before_filter :login_required
   end
 
   def create
-    if params[:commit]=='Validar Tarjeta'
+    if params[:commit]=='Validar'
       @order=Order.new(params[:order])
-      @order.first_name="Pep"
-      @order.last_name="Guardiola"
-
+       @card=Card.where(:card_number=>@order.card_number).first()
+      if @card!=nil
+        @order.first_name=@card.first_name
+        @order.last_name=@card.last_name
+      else
+        @order.first_name=""
+        @order.last_name=""
+      end
       render :action=> 'new'
     else
       @order = Order.new(params[:order])

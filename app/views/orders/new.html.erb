@@ -2,20 +2,16 @@
 
 <%= form_for @order do |f| %>
   <%= f.error_messages %>
-  <div data-role="fieldcontain">
-    <%= f.label :card_number,'Numero Tarjeta' %>
-    <%= f.text_field :card_number ,:class=>"auto-focus" %>
-    <%= submit_tag "Validar Tarjeta"%>
-  </div>
-   <div data-role="fieldcontain">
-    <%= f.label :first_name,'Nombre' %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div data-role="fieldcontain">
-    <%= f.label :last_name,'Apellido' %>
-    <%= f.text_field :last_name %>
-  </div>
-
+  <fieldset class="container_12">
+    <div class="grid_2"><%= f.label :card_number,'Numero Tarjeta' %></div>
+    <div class="grid_8"><%= f.text_field :card_number ,:class=>"auto-focus" %></div>
+    <div class="grid_2"><%= submit_tag "Validar"%></div>
+  </fieldset>
+  <fieldset class="container_12">
+    <div class="grid_2"><%= f.label :first_name,'Nombres' %></div>
+    <div class="grid_5"><%= f.text_field :first_name %></div>
+    <div class="grid_5"><%= f.text_field :last_name %></div>
+  </fieldset>
   <div data-role="fieldcontain">
     <%= f.label :amount,'Monto Compra' %>
     <%= f.text_field :amount ,:class=> "keyboardInput" %>
