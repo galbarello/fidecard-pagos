@@ -1,7 +1,7 @@
 class CreateCards < ActiveRecord::Migration
   def self.up
     create_table :cards do |t|
-      t.integer :card_number
+      t.integer :card_number ,:limit => 8
       t.string :first_name
       t.string :last_name
 

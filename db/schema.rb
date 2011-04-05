@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110405012147) do
 
   create_table "cards", :force => true do |t|
-    t.integer  "card_number"
+    t.integer  "card_number", :limit => 8
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
