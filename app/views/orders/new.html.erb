@@ -5,6 +5,7 @@
   <div data-role="fieldcontain">
     <%= f.label :card_number,'Numero Tarjeta' %>
     <%= f.text_field :card_number ,:class=>"auto-focus" %>
+    <%= submit_tag "Validar Tarjeta"%>
   </div>
    <div data-role="fieldcontain">
     <%= f.label :first_name,'Nombre' %>
@@ -29,7 +30,7 @@
   </div>
   <div data-role="fieldcontain">
       <%= f.label :card_verification, "Digitos de control (PIN)" %>
-      <%= f.password_field :card_verification, :size => 4 %>
+      <%= f.password_field :card_verification, :size => 4 ,:class=>"keyboardInput"%>
   </div>
   <div class="ui-body ui-body-b">
     <fieldset class="ui-grid-a">
