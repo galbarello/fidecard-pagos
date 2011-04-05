@@ -6,16 +6,29 @@ before_filter :login_required
   end
 
   def create
-    @order = Order.new(params[:order])
-    @order.ip_address = request.remote_ip
-    if @order.save
-      if @order.purchase
-        render :action => "success"
+    if params[:commit]=='Validar'
+      @order=Order.new(params[:order])
+       @card=Card.where(:card_number=>@order.card_number).first()
+      if @card!=nil
+        @order.first_name=@card.first_name
+        @order.last_name=@card.last_name
       else
-        render :action => "failure"
+        @order.first_name=""
+        @order.last_name=""
       end
+      render :action=> 'new'
     else
-      render :action => 'new'
+      @order = Order.new(params[:order])
+      @order.ip_address = request.remote_ip
+      if @order.save
+        if @order.purchase
+          render :action => "success"
+        else
+          render :action => "failure"
+        end
+      else
+        render :action => 'new'
+      end
     end
   end
 end
