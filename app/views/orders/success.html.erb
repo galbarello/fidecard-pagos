@@ -1,9 +1,11 @@
+<% title "Imprimiendo Transacción" %>
+
 <div class="lcddisplay dotmatrix">
 Transaccion Aprobada
 
 Imprimiendo...
 <ul>
-  Tienda: Zapato Veloz<br/>
+  Tienda: <%= current_user.comercio%><br/>
 ==============================================
 <% @order.transactions.each do |transaction| %>
   <li>Estado:<%=transaction.message%></li>
@@ -13,9 +15,9 @@ Imprimiendo...
   <li>Autorización:<%=transaction.authorization%></li>
   <li>Data:
   <%=transaction.params.each do |p|%>
-    <li>p.to_s</li>
+    <li><%=p.to_s%></li>
   <%end %>
 <%end%>
 </ul>
 </div>
-<%= button_to "Nueva Compra", :action => "new" %>
+<%= button_to "Nueva Compra", root_path %>

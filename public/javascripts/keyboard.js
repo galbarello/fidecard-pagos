@@ -62,7 +62,7 @@ var VKI_attach, VKI_close;
   var self = this;
 
   this.VKI_version = "1.45";
-  this.VKI_showVersion = true;
+  this.VKI_showVersion = false;
   this.VKI_target = false;
   this.VKI_shift = this.VKI_shiftlock = false;
   this.VKI_altgr = this.VKI_altgrlock = false;
@@ -70,9 +70,9 @@ var VKI_attach, VKI_close;
   this.VKI_deadBox = false; // Show the dead keys checkbox
   this.VKI_deadkeysOn = false;  // Turn dead keys on by default
   this.VKI_numberPad = true;  // Allow user to open and close the number pad
-  this.VKI_numberPadOn = false;  // Show number pad by default
+  this.VKI_numberPadOn = true;  // Show number pad by default
   this.VKI_kts = this.VKI_kt = "US International";  // Default keyboard layout
-  this.VKI_langAdapt = true;  // Use lang attribute of input to select keyboard
+  this.VKI_langAdapt = false;  // Use lang attribute of input to select keyboard
   this.VKI_size = 2;  // Default keyboard size (1-5)
   this.VKI_sizeAdj = true;  // Allow user to adjust keyboard size
   this.VKI_clearPasswords = false;  // Clear password fields on focus

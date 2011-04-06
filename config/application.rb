@@ -37,6 +37,6 @@ module Jqueryblog
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password,:card_verification]
+    config.filter_parameters += [:card_number,:password,:card_verification]
   end
 end
