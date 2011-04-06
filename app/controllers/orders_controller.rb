@@ -12,9 +12,11 @@ before_filter :login_required
       if @card!=nil
         @order.first_name=@card.first_name
         @order.last_name=@card.last_name
+        @order.card_expires_on=@card.card_expires_on
       else
-        @order.first_name=""
-        @order.last_name=""
+        @order.first_name=nil
+        @order.last_name=nil
+        @order.card_expires_on=nil
       end
       render :action=> 'new'
     else

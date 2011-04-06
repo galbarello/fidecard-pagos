@@ -23,6 +23,13 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
+ <div class="ui-body ui-body-b">
+    <fieldset class="ui-grid-a">
+      <div class="ui-block-a"><%= f.label :card_expires_on,'Fecha Vencimiento' %></div>
+      <div class="ui-block-b"><%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %></div>
+   </fieldset>
+   </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>
