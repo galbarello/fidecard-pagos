@@ -14,26 +14,21 @@
   </fieldset>
   <div data-role="fieldcontain">
     <%= f.label :amount,'Monto Compra' %>
-    <%= f.text_field :amount ,:class=> "keyboardInput" %>
+    <%= f.text_field :amount  %>
   </div>
-  <div data-role="fieldcontain">
-    <%= f.label :finana,'Cuotas'%> 
-    <%= f.range_field :finana ,:value=>1, :in => 1..36 %>
-  </div>
-   <div data-role="fieldcontain">
+    <div data-role="fieldcontain">
     <%= f.label :card_type, 'Tarjeta' %>
     <%= f.select :card_type, [["PortaCash","visa"],["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
   </div>
+   <div data-role="fieldcontain">
+    <%= f.label :finana,'Cuotas'%> 
+    <%= f.range_field :finana ,:value=>1, :in => 1..36 %>
+  </div>
   <div data-role="fieldcontain">
       <%= f.label :card_verification, "Digitos de control (PIN)" %>
-      <%= f.password_field :card_verification, :size => 4 ,:class=>"keyboardInput"%>
+      <%= f.password_field :card_verification, :size => 4 %>
   </div>
-  <div class="ui-body ui-body-b">
-    <fieldset class="ui-grid-a">
-      <div class="ui-block-a"><%= f.label :card_expires_on,'Fecha Vencimiento' %></div>
-      <div class="ui-block-b"><%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %></div>
-   </fieldset>
-   </div>
+  <div class="ui-block-b"><%= f.hidden_field :card_expires_on%></div>
   <div class="ui-body ui-body-b">
       <fieldset class="ui-grid-a">
         <div class="ui-block-a">

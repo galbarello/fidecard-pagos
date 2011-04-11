@@ -5,3 +5,7 @@ ActiveMerchant::Billing::Base.mode = :test
         :signature => ENV['paypal_signature']||"AZ1u9jEqDqRtAkF6403SD7H4g3cxA0bGy-Hl3wQFdNKbv6CzQL8GntEW"
 )
 
+ #ActiveMerchant::Billing::Base.mode = :test
+  #::GATEWAY = ActiveMerchant::Billing::BogusGateway.new
+
+
