@@ -1,7 +1,9 @@
+<% title "Imprimiendo Transacción" %>
 <div class="lcddisplay dotmatrix">
 Error en el proceso
 
-Imprimiendo Error de Logueo
+Imprimiendo Error
+
 <% @order.transactions.each do |transaction| %>
   Estado:<%=transaction.message%><br/>
   Orden:<%=transaction.order_id%><br/>
